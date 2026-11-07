@@ -3,40 +3,40 @@ from selenium.webdriver.common.by import By
 
 class LoginPageLocators:
     # Поле ввода Email на странице входа
-    EMAIL_INPUT = (By.XPATH, '//*[@id="root"]/div/main/div/form/fieldset[1]/div/div/input')
+    EMAIL_INPUT = (By.XPATH, "//input[@name='name']")
     # Поле ввода пароля на странице входа
-    PASSWORD_INPUT = (By.XPATH, '//*[@id="root"]/div/main/div/form/fieldset[2]/div/div/input')
-    # Кнопка "Войти"
-    LOGIN_BUTTON = (By.XPATH, '//*[@id="root"]/div/main/div/form/button')
+    PASSWORD_INPUT = (By.XPATH, "//input[@name='Пароль']")
+    # Кнопка "Войти" на странице входа
+    LOGIN_BUTTON = (By.XPATH, "//button[text()='Войти']")
     # Ссылка "Зарегистрироваться"
-    REGISTER_LINK = (By.XPATH, '//*[@id="root"]/div/main/div/div/p[1]/a')
+    REGISTER_LINK = (By.XPATH, "//a[text()='Зарегистрироваться']")
 
 
 class RegisterPageLocators:
     # Поле ввода имени при регистрации
-    NAME_INPUT = (By.XPATH, '//*[@id="root"]/div/main/div/form/fieldset[1]/div/div/input')
-    # Поле ввода Email при регистрации (ДОБАВИЛИ /input в конец!)
-    EMAIL_INPUT = (By.XPATH, '//*[@id="root"]/div/main/div/form/fieldset[2]/div/div/input')
+    NAME_INPUT = (By.XPATH, "//input[@name='name']")
+    # Поле ввода Email при регистрации
+    EMAIL_INPUT = (By.XPATH, "(//input[@name='name'])[2]")
     # Поле ввода пароля при регистрации
-    PASSWORD_INPUT = (By.XPATH, '//*[@id="root"]/div/main/div/form/fieldset[3]/div/div/input')
+    PASSWORD_INPUT = (By.XPATH, "//input[@name='Пароль']")
     # Кнопка "Зарегистрироваться"
-    REGISTER_BUTTON = (By.XPATH, '//*[@id="root"]/div/main/div/form/button')
-    # Сообщение об ошибке (Некорректный пароль)
-    ERROR_MESSAGE = (By.XPATH, '//*[@id="root"]/div/main/div/form/fieldset[3]/div/p')
-    # Ссылка на страницу входа
+    REGISTER_BUTTON = (By.XPATH, "//button[text()='Зарегистрироваться']")
+    # Сообщение об ошибке
+    ERROR_MESSAGE = (By.XPATH, "//p[contains(@class, 'input__error')]")
+    # Ссылка "Войти"
     LOGIN_LINK = (By.XPATH, "//a[text()='Войти']")
 
 
 class MainPageLocators:
+    # Кнопка "Личный кабинет" в шапке сайта
+    ACCOUNT_BUTTON = (By.XPATH, "//p[text()='Личный Кабинет']")
     # Кнопка "Войти в аккаунт" на главной странице
-    LOGIN_BUTTON = (By.XPATH, '//*[@id="root"]/div/main/section[2]/div/button')
-    # Кнопка "Личный Кабинет" в шапке сайта
-    ACCOUNT_BUTTON = (By.XPATH, '//*[@id="root"]/div/header/nav/a/p')
+    LOGIN_BUTTON = (By.XPATH, "//button[text()='Войти в аккаунт']")
 
 
 class RecoveryPageLocators:
-    # Кнопка "Восстановить" на странице восстановления пароля
-    LOGIN_LINK = (By.XPATH, '//*[@id="root"]/div/main/div/form/button')
+    # Ссылка "Войти" на странице восстановления пароля
+    LOGIN_LINK = (By.XPATH, "//a[text()='Войти']")
 
 
 class AccountPageLocators:
@@ -50,15 +50,15 @@ class AccountPageLocators:
 
 class ConstructorPageLocators:
     # Вкладка "Булки"
-    BUNS_TAB = (By.XPATH, "//span[text()='Булки']")
+    BUNS_TAB = (By.XPATH, "//span[text()='Булки']/parent::div")
     # Вкладка "Соусы"
-    SAUCES_TAB = (By.XPATH, "//span[text()='Соусы']")
+    SAUCES_TAB = (By.XPATH, "//span[text()='Соусы']/parent::div")
     # Вкладка "Начинки"
-    FILLINGS_TAB = (By.XPATH, "//span[text()='Начинки']")
+    FILLINGS_TAB = (By.XPATH, "//span[text()='Начинки']/parent::div")
     
-    # Заголовок раздела "Булки"
-    BUNS_SECTION = (By.XPATH, "//h2[text()='Булки']")
-    # Заголовок раздела "Соусы"
-    SAUCES_SECTION = (By.XPATH, "//h2[text()='Соусы']")
-    # Заголовок раздела "Начинки"
-    FILLINGS_SECTION = (By.XPATH, "//h2[text()='Начинки']")
+    # Активная вкладка "Булки" (добавляется класс tab_tab_type_current)
+    BUNS_TAB_ACTIVE = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current')]//span[text()='Булки']")
+    # Активная вкладка "Соусы"
+    SAUCES_TAB_ACTIVE = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current')]//span[text()='Соусы']")
+    # Активная вкладка "Начинки"
+    FILLINGS_TAB_ACTIVE = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current')]//span[text()='Начинки']")
